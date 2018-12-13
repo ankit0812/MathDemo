@@ -1,0 +1,16 @@
+PODS:
+  - iOSLaTeX (0.2.5)
+
+DEPENDENCIES:
+  - iOSLaTeX
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - iOSLaTeX
+
+SPEC CHECKSUMS:
+  iOSLaTeX: cc6124fb7e67f8e09a62f2efe011f75d7df3c822
+
+PODFILE CHECKSUM: 7934f28f1c031d15bd4220098c893e7f92561916
+
+COCOAPODS: 1.5.3
