@@ -32,7 +32,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="37y-Go-Wma" customClass="LaTeXImageView" customModule="iOSLaTeX">
                                                     <rect key="frame" x="20" y="20" width="335" height="78.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="78.5" id="6sp-Cn-2JE"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="78.5" id="ePs-O0-2p7"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -45,7 +45,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageView1" destination="37y-Go-Wma" id="Byq-rQ-A8g"/>
-                                            <outlet property="laTexImageViewHeightConstraint1" destination="6sp-Cn-2JE" id="Qz3-U7-oMt"/>
+                                            <outlet property="laTexImageViewHeightConstraint1" destination="ePs-O0-2p7" id="5l3-yF-BiX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

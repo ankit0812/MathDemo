@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import iOSLaTeX
 
 class ViewController: UIViewController {
     
@@ -14,6 +15,10 @@ class ViewController: UIViewController {
 
     internal var latexString: String = "This come from string. You can insert inline formula:" + "\\(ax^2 + bx + c = 0\\) " + "or displayed formula: $$\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(1n+1)}{6}$$"
     
+    var latexRenderer: LaTeXRenderer!
+    
+//    self.imageView1.inject(laTeXRenderer: self.latexRenderer!)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +27,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.latexRenderer = LaTeXRenderer(parentView: self.view)
     }
 }
 
@@ -34,6 +40,7 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LatexQuestionTableViewCell") as! LatexQuestionTableViewCell
         let latexStringLocal = latexString.replacingOccurrences(of: "2", with: "\(indexPath.row)")
+        cell.imageView1.inject(laTeXRenderer: latexRenderer)
         if cell.isFirstTime  {
             cell.imageView1.render(latexStringLocal, shouldResize: true) { (error) in
                 if let error = error {
@@ -41,7 +48,11 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
                     return
                 }
                 print("Successfully rendered LaTeX")
-                cell.isFirstTime = false
+                DispatchQueue.main.async {
+                    cell.isFirstTime = false
+                    tableView.beginUpdates()
+                    tableView.endUpdates()
+                }
             }
         }
         return cell

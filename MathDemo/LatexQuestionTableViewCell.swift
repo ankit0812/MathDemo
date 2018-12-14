@@ -14,17 +14,15 @@ class LatexQuestionTableViewCell: UITableViewCell {
     @IBOutlet weak var imageView1: LaTeXImageView!
     @IBOutlet weak var laTexImageViewHeightConstraint1: NSLayoutConstraint!
     
-    private var latexRenderer: LaTeXRenderer?
+//    private var latexRenderer: LaTeXRenderer?
     var isFirstTime: Bool = true // This variable is for stopping the cell from rendering a LaTeX again and again
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        self.latexRenderer = LaTeXRenderer(parentView: self.imageView1)
-        self.imageView1.inject(laTeXRenderer: self.latexRenderer!)
-        self.imageView1.heightConstraint = laTexImageViewHeightConstraint1
-        self.imageView1.backgroundColorWhileRenderingLaTeX = self.backgroundColor
+        selectionStyle = .none
+        imageView1.heightConstraint = laTexImageViewHeightConstraint1
+        imageView1.backgroundColorWhileRenderingLaTeX = UIColor.white
     }
 
 
